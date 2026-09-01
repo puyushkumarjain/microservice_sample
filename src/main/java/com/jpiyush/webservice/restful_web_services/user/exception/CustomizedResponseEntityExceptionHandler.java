@@ -1,6 +1,5 @@
 package com.jpiyush.webservice.restful_web_services.user.exception;
 
-import org.jspecify.annotations.Nullable;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

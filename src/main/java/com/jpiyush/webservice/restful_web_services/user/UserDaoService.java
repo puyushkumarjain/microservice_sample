@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class UserDaoService {
-    private static List<User> users = new ArrayList<>();
+    private static final List<User> users = new ArrayList<>();
     private static int usersCount = 0;
     static {
         users.add(new User(++usersCount, "John Doe", LocalDate.now().minusYears(30)));
