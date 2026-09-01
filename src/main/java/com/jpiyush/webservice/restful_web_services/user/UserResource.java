@@ -2,8 +2,8 @@ package com.jpiyush.webservice.restful_web_services.user;
 
 import com.jpiyush.webservice.restful_web_services.user.exception.UserNotFoundException;
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class UserResource {
-    private UserDaoService UserDaoService;
+    private final UserDaoService UserDaoService;
 
     public UserResource(UserDaoService userDaoService) {
         this.UserDaoService = userDaoService;
@@ -32,7 +32,7 @@ public class UserResource {
         return user;
     }
 
-    @PostMapping("/users")
+    @PostMapping(path = "/users" ,consumes = {  MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
         User savedUser = UserDaoService.save(user);
         URI location = ServletUriComponentsBuilder

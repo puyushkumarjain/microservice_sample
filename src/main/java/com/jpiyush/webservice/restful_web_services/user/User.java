@@ -2,9 +2,11 @@ package com.jpiyush.webservice.restful_web_services.user;
 
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.time.LocalDate;
 
+@XmlRootElement(name = "item")
 public class User {
 
     private Integer id;
@@ -12,6 +14,9 @@ public class User {
     private String name;
     @Past(message = "Birth date should be in the past")
     private LocalDate birthDate;
+
+    public User() {
+    }
 
     public User(Integer id, String name, LocalDate birthDate) {
         this.id = id;
