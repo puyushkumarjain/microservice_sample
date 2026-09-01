@@ -3,7 +3,6 @@ package com.jpiyush.webservice.restful_web_services.user;
 import com.jpiyush.webservice.restful_web_services.user.exception.UserNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 @RestController
 public class UserResource {
-    private UserDaoService UserDaoService;
+    private final UserDaoService UserDaoService;
 
     public UserResource(UserDaoService userDaoService) {
         this.UserDaoService = userDaoService;
